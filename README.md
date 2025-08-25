@@ -4,15 +4,15 @@ Application powered by TiDB Serverless and Gemini AI that helps workers explore 
 
 ## Features
 **About Page**
-- Overview of the app and purpose (Ontario ESA insights).
+- Overview of the app
 **Labor Law Information**
 - Ask natural language questions about ESA.
- - Uses Gemini embeddings + TiDB vector search for retrieval.
+ - Uses Gemini AI + TiDB vector search for retrieval
 **Contract Insights**
 - Ability to upload an employee labor contract
- - Extract text and get compliance insights.
+ - Extract text and get compliance insights
 **Lawyer Information**
-- Search for Ontario labour lawyers.
+- Search for Ontario labour lawyers
 
 
 ## Setup
