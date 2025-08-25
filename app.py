@@ -1,4 +1,4 @@
-import streamlit as st
+from utils import *
 
 pg = st.navigation([
     st.Page("About.py"),
