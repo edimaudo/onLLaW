@@ -1,11 +1,21 @@
-# 🎈 Blank app template
+# 🎈 onllaw
 
-A simple Streamlit app template for you to modify!
+Application powered by TiDB Serverless and Gemini AI that helps workers explore Ontario’s Employment Standards Act (ESA).
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+## Features
+**About Page**
+- Overview of the app and purpose (Ontario ESA insights).
+**Labor Law Information**
+- Ask natural language questions about ESA.
+ - Uses Gemini embeddings + TiDB vector search for retrieval.
+**Contract Insights**
+- Ability to upload an employee labor contract
+ - Extract text and get compliance insights.
+**Lawyer Information**
+- Search for Ontario labour lawyers.
 
-### How to run it on your own machine
 
+## Setup
 1. Install the requirements
 
    ```
@@ -15,5 +25,5 @@ A simple Streamlit app template for you to modify!
 2. Run the app
 
    ```
-   $ streamlit run streamlit_app.py
+   $ streamlit run app.py
    ```
