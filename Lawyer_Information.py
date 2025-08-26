@@ -4,7 +4,7 @@ st.title(APP_NAME)
 st.header(LAWYER_INFORMATION_HEADER)
 
 st.write("""
-List of Law Firms that can be contacted to discuss employement issues.  
+List of some Law Firms that can be contacted to discuss employement/labour issues.  
 """
          
 )
