@@ -27,3 +27,20 @@ st.set_page_config(
     page_title=APP_NAME,
     layout="wide"
 )
+
+
+
+# Load data
+@st.cache_data
+def load_data(DATA_URL,DATA_TYPE):
+    if DATA_TYPE == 'xlsx':
+        data = pd.read_excel(DATA_URL)
+    elif DATA_TYPE == 'geojson':
+        data = pd.read_json(DATA_URL)
+    return data
+
+
+"""
+Lawyer Information 
+"""
+law_df = load_data("data/law_info.xlsx",'xlsx')
