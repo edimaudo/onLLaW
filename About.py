@@ -3,11 +3,20 @@ from utils import *
 st.title(APP_NAME)
 st.header(ABOUT_HEADER)
 
-st.markdown(
-    """
-    This project provides the opportunity for employees to analyze employment or labor contracts and see if there are any areas of concern.  
+st.write("""
+    This app helps workers and employers in Ontario understand their rights and obligations 
+    under the [Employment Standards Act (ESA)](https://www.ontario.ca/laws/statute/00e41).
     The goal is to better empower employees especially in an uncertain job market.
-    It is built using [streamlit](https://streamlit.io/cloud), [TIDB](https://www.pingcap.com/) and [Google Gemini](https://aistudio.google.com/).  
-    **N/B**: This app is not a substitute for a qualified lawyer. 
-    """
-)
+    
+    **Features:**
+    - Ask questions about labor law 
+    - Analyze labor contracts for compliance/areas of concernts
+    - Find lawyers  
+    
+    **Powered by:**  
+    - [Streamlit](https://docs.streamlit.io) for UI  
+    - [TiDB Serverless](https://www.pingcap.com/) for data storage  
+    - [Gemini API](https://ai.google.dev/) for embeddings + reasoning  
+             
+     **N/B**: This app is not a substitute for a qualified lawyer. 
+    """)
