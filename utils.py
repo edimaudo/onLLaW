@@ -8,6 +8,10 @@ import os, os.path
 import warnings
 import random
 from google import genai
+import requests
+import re
+import json
+import pymysql
 from dotenv import load_dotenv, dotenv_values 
 load_dotenv() 
 
