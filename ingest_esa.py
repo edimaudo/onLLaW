@@ -1,9 +1,5 @@
 from utils import *
-
-# --- Configure APIs ---
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-EMBED_MODEL = "models/embedding-001"
-
+ 
 # --- TiDB Connection ---
 def get_connection():
     return pymysql.connect(
