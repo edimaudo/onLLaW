@@ -18,8 +18,6 @@ for s in sections:
 
 print(f"Extracted {len(esa_texts)} sections")
 
-
-
 # Chunk and Embed
 genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
