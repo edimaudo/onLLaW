@@ -12,9 +12,11 @@ import requests
 import re
 import json
 import pymysql
-import fitz
-import docx
-import warnings
+#import fitz
+#import docx
+import json
+import bs4
+from bs4 import BeautifulSoup
 from dotenv import load_dotenv, dotenv_values 
 load_dotenv() 
 
@@ -77,13 +79,13 @@ def query_tidb(sql, params=None):
     return df
 
 # Contract parsing utilities
-def extract_text_from_pdf(file):
-    doc = fitz.open(stream=file.read(), filetype="pdf")
-    return "\n".join(page.get_text("text") for page in doc)
+#def extract_text_from_pdf(file):
+#    doc = fitz.open(stream=file.read(), filetype="pdf")
+#    return "\n".join(page.get_text("text") for page in doc)
 
-def extract_text_from_word(file):
-    doc = docx.Document(file)
-    return "\n".join(para.text for para in doc.paragraphs)
+#def extract_text_from_word(file):
+#    doc = docx.Document(file)
+#    return "\n".join(para.text for para in doc.paragraphs)
 
 # Gemini embedding
 def embed_text(text):
