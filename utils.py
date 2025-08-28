@@ -55,8 +55,11 @@ law_df = load_data("data/law_info.xlsx",'xlsx')
 """
 TIDB
 """
+# Pick your Gemini model
+EMBED_MODEL = "models/embedding-001"
+LLM_MODEL = "gemini-2.0-flash"
+
 # --- TiDB Serverless Connection ---
-# Replace with your TiDB connection details
 conn = pymysql.connect(
     host=os.getenv("TIDB_HOST"),
     user=os.getenv("TIDB_USER"),
@@ -81,7 +84,17 @@ def extract_text_from_pdf(file):
         text += page.get_text("text")
     return text
 
-
 def extract_text_from_word(file):
     doc = docx.Document(file)
     return "\n".join([para.text for para in doc.paragraphs])
+
+def embed_text(text):
+    """Generate embeddings using Gemini"""
+    result = genai.embed_content(model=EMBED_MODEL, content=text)
+    return result['embedding']
+
+def gemini_chat(prompt, context=""):
+    """Chat with Gemini model"""
+    chat = genai.GenerativeModel(model_name=LLM_MODEL)
+    response = chat.generate_content(f"Context: {context}\n\nUser: {prompt}")
+    return response.text
