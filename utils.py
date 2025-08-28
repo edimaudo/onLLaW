@@ -57,7 +57,7 @@ TIDB
 """
 # Pick your Gemini model
 EMBED_MODEL = "models/embedding-001"
-LLM_MODEL = "gemini-2.0-flash"
+LLM_MODEL = "gemini-2.5-flash"
 
 # --- TiDB Serverless Connection ---
 conn = pymysql.connect(
