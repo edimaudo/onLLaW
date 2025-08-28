@@ -10,7 +10,7 @@ List of some Law Firms that can be contacted to discuss employement/labour issue
 )
 
 with st.sidebar:
-        lawyer_options = st.selectbox('Lawyer Options',['All','Recommended by Law Society of Ontario'])
+        lawyer_options = st.selectbox('Lawyer Options',['All','Law Society of Ontario'])
 
 if lawyer_options == 'All':
     law_temp_df = law_df[['Law Firm','Website']]
