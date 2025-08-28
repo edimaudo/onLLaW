@@ -12,6 +12,8 @@ import requests
 import re
 import json
 import pymysql
+import fitz
+import docx
 from dotenv import load_dotenv, dotenv_values 
 load_dotenv() 
 
@@ -48,3 +50,38 @@ def load_data(DATA_URL,DATA_TYPE):
 Lawyer Information 
 """
 law_df = load_data("data/law_info.xlsx",'xlsx')
+
+
+"""
+TIDB
+"""
+# --- TiDB Serverless Connection ---
+# Replace with your TiDB connection details
+conn = pymysql.connect(
+    host=os.getenv("TIDB_HOST"),
+    user=os.getenv("TIDB_USER"),
+    password=os.getenv("TIDB_PASSWORD"),
+    database=os.getenv("TIDB_DATABASE"),
+    ssl={"ssl": True}
+)
+
+def query_tidb(sql, params=None):
+    """Run SQL query against TiDB Serverless"""
+    with conn.cursor() as cursor:
+        cursor.execute(sql, params or ())
+        result = cursor.fetchall()
+        columns = [col[0] for col in cursor.description]
+    return pd.DataFrame(result, columns=columns)
+
+
+def extract_text_from_pdf(file):
+    text = ""
+    pdf = fitz.open(stream=file.read(), filetype="pdf")
+    for page in pdf:
+        text += page.get_text("text")
+    return text
+
+
+def extract_text_from_word(file):
+    doc = docx.Document(file)
+    return "\n".join([para.text for para in doc.paragraphs])
